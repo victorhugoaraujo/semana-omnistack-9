@@ -1,5 +1,5 @@
 const Spot = require('../models/Spot');
-const User = require('../models/Spot');
+const User = require('../models/User');
 
 module.exports = {
   async index(req, res) {
@@ -18,7 +18,7 @@ module.exports = {
     const user = await User.findById(user_id);
 
     if(!user) {
-      return res.status(400).json({error: 'User does not exists '});
+      return res.status(400).json({ error: 'User does not exists' });
     }
     
     const spot = await Spot.create({

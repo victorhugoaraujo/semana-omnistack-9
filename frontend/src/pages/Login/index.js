@@ -4,10 +4,11 @@ import api from '../../services/api';
 export default function Login({ history }){
   const [email, setEmail] = useState('');
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit(event) {
+    event.preventDefault();
 
-    const response = await api.post('/session', { email });
+    const response = await api.post('/sessions', { email });
+    console.log(response)
 
     const { _id } = response.data;
 
@@ -28,7 +29,7 @@ export default function Login({ history }){
           id="email"
           placeholder="Seu melhor e-mail"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={event => setEmail(event.target.value)}
         />
         
         <button className="btn" type="submit">Entrar</button>
