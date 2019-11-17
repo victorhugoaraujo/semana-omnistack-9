@@ -8,7 +8,6 @@ export default function Login({ history }){
     event.preventDefault();
 
     const response = await api.post('/sessions', { email });
-    console.log(response)
 
     const { _id } = response.data;
 
